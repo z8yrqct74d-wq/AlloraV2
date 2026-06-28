@@ -88,7 +88,10 @@ struct AlloraOrbView: View {
         rotationAngle += dt * rotationRate
     }
 
-    private func drawOrb(ctx: GraphicsContext, size: CGSize) {
+    private func drawOrb(ctx incomingCtx: GraphicsContext, size: CGSize) {
+        // GraphicsContext is a value type; take a mutable copy so we can set
+        // `blendMode` for the additive particle/glow passes.
+        var ctx = incomingCtx
         let w = size.width, h = size.height
         let cx = w/2, cy = h/2
         let breathe = 1 + 0.028 * sin(time * 0.9)
