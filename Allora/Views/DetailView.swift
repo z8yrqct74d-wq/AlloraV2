@@ -227,7 +227,7 @@ struct DetailView: View {
                             .foregroundColor(Color(hex: "#FBF3E6"))
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 16)
-                            .background(.alloraTerracotta)
+                            .background(Color.alloraTerracotta)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             .shadow(color: Color.alloraTerracotta.opacity(0.6), radius: 15, y: 7)
                     }
