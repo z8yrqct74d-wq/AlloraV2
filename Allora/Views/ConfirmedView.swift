@@ -60,7 +60,7 @@ struct ConfirmedView: View {
                             Rectangle()
                                 .fill(Color(hex: "#23160F"))
                                 .frame(height: 96)
-                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor))
+                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName))
                                 .overlay(LinearGradient(colors: [.clear, Color.black.opacity(0.55)], startPoint: .top, endPoint: .bottom))
                             Text(restaurant.name)
                                 .font(AlloraFont.newsreader(26, weight: .medium))

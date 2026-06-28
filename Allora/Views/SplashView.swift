@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct SplashView: View {
     @EnvironmentObject var state: AppState

@@ -139,7 +139,7 @@ struct TasteProfileView: View {
                                         ZStack(alignment: .topTrailing) {
                                             ZStack(alignment: .bottomLeading) {
                                                 RoundedRectangle(cornerRadius: 18).fill(Color(hex: "#23160F"))
-                                                    .overlay(RestaurantPlaceholderImage(name: r.name, color: r.roleColor).clipShape(RoundedRectangle(cornerRadius: 18)))
+                                                    .overlay(RestaurantPlaceholderImage(name: r.name, color: r.roleColor, imageName: r.imageName).clipShape(RoundedRectangle(cornerRadius: 18)))
                                                     .frame(height: 120)
                                                 Text(r.name)
                                                     .font(AlloraFont.newsreader(20, weight: .medium))
@@ -230,7 +230,7 @@ struct TasteProfileView: View {
                                 HStack(spacing: 13) {
                                     RoundedRectangle(cornerRadius: 13)
                                         .fill(Color(hex: "#23160F"))
-                                        .overlay(RestaurantPlaceholderImage(name: r.name, color: r.roleColor).clipShape(RoundedRectangle(cornerRadius: 13)))
+                                        .overlay(RestaurantPlaceholderImage(name: r.name, color: r.roleColor, imageName: r.imageName).clipShape(RoundedRectangle(cornerRadius: 13)))
                                         .frame(width: 62, height: 62)
                                     VStack(alignment: .leading, spacing: 3) {
                                         Text(r.name).font(AlloraFont.newsreader(20)).foregroundColor(Color(hex: "#241D14"))

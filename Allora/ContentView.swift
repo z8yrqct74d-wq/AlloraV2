@@ -4,14 +4,11 @@ struct ContentView: View {
     @StateObject private var state = AppState()
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             screenView
             if state.showTabBar {
-                VStack {
-                    Spacer()
-                    TabBarView()
-                }
-                .ignoresSafeArea()
+                TabBarView()
+                    .transition(.opacity)
             }
         }
         .environmentObject(state)

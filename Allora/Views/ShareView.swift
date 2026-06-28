@@ -42,7 +42,7 @@ struct ShareView: View {
                             Rectangle()
                                 .fill(Color(hex: "#23160F"))
                                 .frame(height: 240)
-                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor))
+                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName))
                                 .overlay(LinearGradient(colors: [Color(hex: "#FFDEA8").opacity(0.4), .clear, Color.black.opacity(0.62)], startPoint: .top, endPoint: .bottom))
 
                             VStack {

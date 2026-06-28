@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct DetailView: View {
     @EnvironmentObject var state: AppState
@@ -20,7 +21,7 @@ struct DetailView: View {
                             Rectangle()
                                 .fill(Color(hex: "#23160F"))
                                 .frame(height: 354)
-                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor))
+                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName))
                                 .overlay(
                                     LinearGradient(colors: [Color(hex: "#FFDEA8").opacity(0.4), .clear, Color.black.opacity(0.7)], startPoint: .top, endPoint: .bottom)
                                 )

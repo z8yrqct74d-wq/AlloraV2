@@ -33,7 +33,7 @@ struct BookingView: View {
                         HStack(spacing: 13) {
                             RoundedRectangle(cornerRadius: 13)
                                 .fill(Color(hex: "#23160F"))
-                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor).clipShape(RoundedRectangle(cornerRadius: 13)))
+                                .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName).clipShape(RoundedRectangle(cornerRadius: 13)))
                                 .frame(width: 54, height: 54)
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(restaurant.name)

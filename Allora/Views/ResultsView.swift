@@ -133,7 +133,7 @@ struct ResultCard: View {
                 RoundedRectangle(cornerRadius: 0)
                     .fill(Color(hex: "#23160F"))
                     .frame(height: 178)
-                    .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor))
+                    .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName))
                     .overlay(
                         LinearGradient(colors: [.clear, .clear, Color.black.opacity(0.55)], startPoint: .top, endPoint: .bottom)
                     )

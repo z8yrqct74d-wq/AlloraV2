@@ -88,7 +88,7 @@ struct PulseView: View {
                                 HStack(spacing: 13) {
                                     RoundedRectangle(cornerRadius: 13)
                                         .fill(Color(hex: "#23160F"))
-                                        .overlay(RestaurantPlaceholderImage(name: r.name, color: r.roleColor).clipShape(RoundedRectangle(cornerRadius: 13)))
+                                        .overlay(RestaurantPlaceholderImage(name: r.name, color: r.roleColor, imageName: r.imageName).clipShape(RoundedRectangle(cornerRadius: 13)))
                                         .frame(width: 60, height: 60)
                                     VStack(alignment: .leading, spacing: 3) {
                                         Text(r.name)

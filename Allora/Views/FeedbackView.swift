@@ -27,7 +27,7 @@ struct FeedbackView: View {
                     VStack(spacing: 0) {
                         RoundedRectangle(cornerRadius: 16)
                             .fill(Color(hex: "#23160F"))
-                            .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor).clipShape(RoundedRectangle(cornerRadius: 16)))
+                            .overlay(RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName).clipShape(RoundedRectangle(cornerRadius: 16)))
                             .frame(width: 62, height: 62)
                             .shadow(color: Color(hex: "#3C1E0C").opacity(0.5), radius: 14, y: 7)
                         Text("\(restaurant.name) · last night".uppercased())

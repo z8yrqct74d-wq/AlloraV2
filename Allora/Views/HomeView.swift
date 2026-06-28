@@ -93,7 +93,7 @@ struct HomeView: View {
                                     .scaleEffect(ringPulse2 ? 1.55 : 0.6)
                                     .opacity(ringPulse2 ? 0 : 0.6)
 
-                                AlloraOrbView(mode: orbModeForState, size: 158)
+                                AlloraOrbView(mode: orbModeForState, size: 158, pulse: state.pulseCount)
                                     .offset(y: orbFloat ? -9 : 0)
                             }
                             .frame(width: 196, height: 196)
@@ -161,7 +161,7 @@ struct HomeView: View {
                             HStack(spacing: 13) {
                                 RoundedRectangle(cornerRadius: 12)
                                     .fill(Color(hex: "#23160F"))
-                                    .overlay(RestaurantPlaceholderImage(name: "MAT", color: Color(hex: "#BC5230")).clipShape(RoundedRectangle(cornerRadius: 12)))
+                                    .overlay(RestaurantPlaceholderImage(name: "MAT", color: Color(hex: "#BC5230"), imageName: "r-mat").clipShape(RoundedRectangle(cornerRadius: 12)))
                                     .frame(width: 46, height: 46)
                                     .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.black.opacity(0.06)))
                                 VStack(alignment: .leading, spacing: 1) {

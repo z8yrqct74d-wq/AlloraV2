@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 // Horizontal scroll card (home/pulse)
 struct RestaurantTileCard: View {
@@ -14,7 +15,7 @@ struct RestaurantTileCard: View {
                         .fill(Color(hex: "#23160F"))
                         .frame(height: 120)
                         .overlay(
-                            RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor)
+                            RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName)
                                 .clipShape(RoundedRectangle(cornerRadius: 18))
                         )
                         .overlay(
@@ -63,7 +64,7 @@ struct PickOfNightCard: View {
                     .frame(maxWidth: .infinity)
                     .frame(height: height)
                     .overlay(
-                        RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor)
+                        RestaurantPlaceholderImage(name: restaurant.name, color: restaurant.roleColor, imageName: restaurant.imageName)
                             .clipShape(RoundedRectangle(cornerRadius: 24))
                     )
                     .overlay(
@@ -119,18 +120,52 @@ struct PickOfNightCard: View {
     }
 }
 
-// Placeholder gradient image (since we don't have actual images)
+/// Venue imagery.
+///
+/// FINAL DESIGN DIRECTION: real restaurant / interior photography. Photos are
+/// the "trust" half of the experience (the orb/glass/motion is the "magic"
+/// half). To wire real photos in, drop an image set into `Assets.xcassets`
+/// named to match the restaurant's `imageName` (e.g. `r-mat`, `r-kane`,
+/// `r-sare`, …) and this view will use it automatically — no code changes.
+///
+/// PLACEHOLDER (temporary): when no matching asset is bundled, a warm
+/// generated gradient with a faint speckle stands in so the app runs with no
+/// external assets. These gradients are NOT a design direction — they exist
+/// only so the prototype is self-contained. See `DESIGN_HANDOFF.md`.
 struct RestaurantPlaceholderImage: View {
-    let name: String
-    let color: Color
+    /// Display label, used only for debugging/identification.
+    var name: String = ""
+    /// Fallback tint for the placeholder gradient (typically the role color).
+    var color: Color
+    /// Asset-catalog name of the real photo, if available.
+    var imageName: String? = nil
+
+    private var bundledImage: UIImage? {
+        guard let imageName, !imageName.isEmpty else { return nil }
+        return UIImage(named: imageName)
+    }
 
     var body: some View {
+        GeometryReader { geo in
+            if let ui = bundledImage {
+                Image(uiImage: ui)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .clipped()
+            } else {
+                placeholder
+            }
+        }
+    }
+
+    private var placeholder: some View {
         ZStack {
             LinearGradient(
                 colors: [color.opacity(0.8), Color(hex: "#1A0C07")],
                 startPoint: .topLeading, endPoint: .bottomTrailing
             )
-            // Subtle texture overlay
+            // Faint speckle so flat gradients read as "atmosphere", not UI.
             Canvas { ctx, size in
                 for _ in 0..<200 {
                     let x = Double.random(in: 0...size.width)
