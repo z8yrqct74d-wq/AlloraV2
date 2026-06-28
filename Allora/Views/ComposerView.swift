@@ -166,7 +166,7 @@ struct ComposerView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 17)
-                        .background(.alloraTerracotta)
+                        .background(Color.alloraTerracotta)
                         .clipShape(RoundedRectangle(cornerRadius: 17))
                         .shadow(color: Color.alloraTerracotta.opacity(0.65), radius: 15, y: 7)
                     }

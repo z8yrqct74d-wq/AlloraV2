@@ -124,7 +124,7 @@ struct AlloraOrbView: View {
         ctx.blendMode = .plusLighter
         let baseParticleSize = w * 0.02
         for p in particles {
-            var x = p.dx * cosRY + p.dz * sinRY
+            let x = p.dx * cosRY + p.dz * sinRY
             var z = -p.dx * sinRY + p.dz * cosRY
             var y = p.dy
             let y2 = y * cosTX - z * sinTX
